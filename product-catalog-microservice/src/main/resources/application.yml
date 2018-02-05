@@ -1,7 +1,8 @@
 # Discovery Server Access
 eureka:
   instance:
-    hostname: product-catalog-microservice
+    #hostname: product-catalog-microservice
+    hostname: localhost
   client:
     registryFetchIntervalSeconds: 1
     serviceUrl:

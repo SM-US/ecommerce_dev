@@ -1,7 +1,8 @@
 # Discovery Server Access
 eureka:
   instance:
-    hostname: cart-microservice
+    #hostname: cart-microservice
+    hostname: localhost
   client:
     registryFetchIntervalSeconds: 1
     serviceUrl:
