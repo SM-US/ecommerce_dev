@@ -3,7 +3,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/venkataravuri/config-repo
+          uri: https://github.com/SM-US/ecommerce_config
 
 eureka:
   instance:
@@ -11,4 +11,5 @@ eureka:
   client:
     registryFetchIntervalSeconds: 1
     serviceUrl:
-      defaultZone: http://discovery-microservice:8001/eureka/
+      #defaultZone: http://discovery-microservice:8001/eureka/
+      defaultZone: http://localhost:8001/eureka/

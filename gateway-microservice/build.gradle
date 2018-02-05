@@ -2,7 +2,7 @@ group 'com.nikhu.ecommerce.gateway'
 
 buildscript {
     ext {
-        springBootVersion = '1.4.1.RELEASE'
+        springBootVersion = '1.5.10.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -12,17 +12,22 @@ buildscript {
     }
 }
 
-apply plugin: 'spring-boot'
+apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'java'
+apply plugin: 'idea'
 
 jar {
     baseName = 'gateway-microservice'
     version = '0.0.1-SNAPSHOT'
 }
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 dependencyManagement {
     imports {
-        mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Brixton.SR5'
+        mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Edgware.RELEASE'
     }
 }
 

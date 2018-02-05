@@ -1,4 +1,4 @@
-FROM mvertes/alpine-mongo
+show tables;FROM mvertes/alpine-mongo
 
 RUN apk add --update curl && \
     rm -rf /var/cache/apk/*

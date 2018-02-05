@@ -24,7 +24,7 @@ public abstract class AbstractRepository {
     private static final Logger log = LoggerFactory.getLogger(AbstractRepository.class);
     @Value("${db.database.collectionName: products}")
     protected String collectionName;
-    @Value("${db.server.hostname: 192.168.99.100}")
+    @Value("${db.server.hostname: localhost}")
     private String dbServerHostname;
     @Value("${db.server.port: 27017}")
     private int dbServerPort;

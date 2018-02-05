@@ -1,4 +1,4 @@
-# Sample E-Commerce App using Microservices Architecture
+**____**# Sample E-Commerce App using Microservices Architecture
 **_A fictitious cloud-native e-commerce sample application using micro-services architecture powered by Spring Cloud, Docker, React.JS, MongoDB, Redis and more._**
 
 This sample e-commerce application demonstrates how to build an application using microservices architecture paradigm with Polyglot Languages (Java, JavaScript) & Polyglot Persistance software (MongoDB, Redis). This sample application includes following functional microservices & infrastructure microservices. All of these microservices are independently deployable applications and are organized around business capabilities.
