@@ -1,13 +1,12 @@
-package com.nikhu.ecommerce.product;
+package com.cloud.ecommerce.product.product.model;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import fr.javatic.mongo.jacksonCodec.objectId.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "products")
 public class Product {
 
     @Id
-    @JsonSerialize(using = ObjectIdSerializer.class)
-    //@JsonDeserialize(using = ObjectIdDeSerializer.class)
     private String _id;
     private String name;
     private String description;
@@ -15,6 +14,7 @@ public class Product {
     private String currency;
     private String image;
     private String url;
+
 
     public Product() {
     }
@@ -74,4 +74,6 @@ public class Product {
     public void setUrl(String url) {
         this.url = url;
     }
+
+
 }

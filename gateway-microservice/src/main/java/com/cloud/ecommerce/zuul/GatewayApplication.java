@@ -1,4 +1,4 @@
-package com.nikhu.ecommerce.gateway;
+package com.cloud.ecommerce.zuul;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

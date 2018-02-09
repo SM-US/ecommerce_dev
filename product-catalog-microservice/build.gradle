@@ -7,20 +7,21 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath "io.spring.gradle:dependency-management-plugin:0.6.1.RELEASE"
     }
 }
 
-repositories {
-    maven { url "https://dl.bintray.com/ylemoigne/maven" }
-}
-
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
 
 jar {
     baseName = 'product-catalog-microservice'
     version = '0.0.1-SNAPSHOT'
+}
+
+repositories {
+    mavenCentral()
 }
 
 sourceCompatibility = 1.8
@@ -37,8 +38,9 @@ dependencies {
     compile('org.springframework.cloud:spring-cloud-starter-eureka')
     compile('org.springframework.boot:spring-boot-starter-web')
     compile("org.springframework.boot:spring-boot-starter-actuator")
-    compile group: 'org.mongodb', name: 'mongodb-driver-async', version: '3.3.0'
-    compile 'fr.javatic.mongo:mongo-jackson-codec:3.2.2__0.5'
+    //compile group: 'org.mongodb', name: 'mongodb-driver-async', version: '3.3.0'
+    //compile 'fr.javatic.mongo:mongo-jackson-codec:3.2.2__0.5'
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb")
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('org.springframework.cloud:spring-cloud-starter-eureka-server')
 }

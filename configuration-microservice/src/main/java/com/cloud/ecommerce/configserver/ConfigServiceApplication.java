@@ -1,4 +1,4 @@
-package com.nikhu.ecommerce.config;
+package com.cloud.ecommerce.configserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,5 +1,5 @@
 FROM anapsix/alpine-java:8_jdk_unlimited
-MAINTAINER Venkata Ravuri <venkat@nikhu.com>
+MAINTAINER Codiez <codiez@devloper.com>
 
 RUN apk add --update curl && \
     rm -rf /var/cache/apk/*

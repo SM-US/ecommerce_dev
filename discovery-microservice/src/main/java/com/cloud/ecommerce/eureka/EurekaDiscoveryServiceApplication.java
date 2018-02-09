@@ -1,4 +1,4 @@
-package com.nikhu.ecommerce.discovery;
+package com.cloud.ecommerce.eureka;
 
 /**
  * Created by VRavuri on 01-11-2016.

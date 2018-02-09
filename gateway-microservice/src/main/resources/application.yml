@@ -1,23 +1,22 @@
 eureka:
   instance:
-    #hostname: gateway-microservice
-    hostname: localhost
+    hostname: gateway-microservice
   client:
     fetch-registry: true
     register-with-eureka: true
     serviceUrl:
-      #defaultZone: http://discovery-microservice:8001/eureka/
-      defaultZone: http://localhost:8001/eureka/
-    #registryFetchIntervalSeconds: 1
+      defaultZone: http://discovery-microservice:8001/eureka/
+    registryFetchIntervalSeconds: 1
 
 zuul:
+  prefix: /api
   routes:
     product-catalog-microservice:
-      path: /products/**
+      path: /products-service/**
       #stripPrefix: false
       service-id: product-catalog-microservice
-      #url: http://localhost:9001
+      #url: http://product-catalog-microservice:9001
     cart-microservice:
-      path: /cart/**
+      path: /cart-service/**
       #stripPrefix: false
       service-id: CART-MICROSERVICE
