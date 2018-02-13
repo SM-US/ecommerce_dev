@@ -10,3 +10,6 @@ ADD ./build/libs/cart-microservice-0.0.1-SNAPSHOT.jar /app/
 CMD ["java", "-Xmx1024m", "-jar", "/app/cart-microservice-0.0.1-SNAPSHOT.jar"]
 
 EXPOSE 9002
+
+#docker build . -t ecommerce/cart-microservice
+#docker run --rm -p 9002:9002 --name cart-microservice --link redis:redis --link discovery-microservice ecommerce/cart-microservice
