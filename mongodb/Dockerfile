@@ -1,4 +1,5 @@
-show tables;FROM mvertes/alpine-mongo
+#show tables;
+FROM mvertes/alpine-mongo
 
 RUN apk add --update curl && \
     rm -rf /var/cache/apk/*
@@ -22,3 +23,8 @@ RUN mongod --fork --logpath /var/log/mongodb.log --dbpath /data/db2 --smallfiles
 VOLUME /data/db2
 
 CMD ["mongod", "--config", "/etc/mongodb.conf", "--smallfiles"]
+
+#docker build . -t ecommerce/mongo
+#docker run --rm --name mongo  ecommerce/mongo
+#docker exec -it mongoContainer mongo
+
