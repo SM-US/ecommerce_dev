@@ -1,4 +1,4 @@
-loafunction get_results(result) {
+function get_results(result) {
     print(tojson(result));
 }
 
