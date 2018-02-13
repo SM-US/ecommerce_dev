@@ -8,3 +8,7 @@ ADD ./build/libs/configuration-microservice-0.0.1-SNAPSHOT.jar /app/
 CMD ["java", "-Xmx200m", "-jar", "/app/configuration-microservice-0.0.1-SNAPSHOT.jar"]
 
 EXPOSE 8002
+
+#docker build . -t ecommerce/configuration-microservice
+#docker run --rm -p 8002:8002 --name configuration-microservice --link discovery-microservice ecommerce/configuration-microservice
+
