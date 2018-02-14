@@ -10,5 +10,6 @@ CMD ["java", "-Xmx200m", "-jar", "/app/configuration-microservice-0.0.1-SNAPSHOT
 EXPOSE 8002
 
 #docker build . -t ecommerce/configuration-microservice
+#docker network create my_nw
 #docker run --rm -p 8002:8002 --name configuration-microservice --link discovery-microservice ecommerce/configuration-microservice
 
