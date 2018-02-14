@@ -1,13 +1,11 @@
 # Discovery Server Access
 eureka:
   instance:
-    #hostname: cart-microservice
-    hostname: localhost
+    hostname: cart-microservice
   client:
     registryFetchIntervalSeconds: 1
     serviceUrl:
-      #defaultZone: http://discovery-microservice:8001/eureka/
-      defaultZone: http://localhost:8001/eureka/
+      defaultZone: http://discovery-microservice:8001/eureka/
 
 # HTTP (Tomcat) server port
 server:
