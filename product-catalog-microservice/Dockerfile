@@ -18,4 +18,5 @@ EXPOSE 9001
 EXPOSE 4444
 
 #docker build . -t ecommerce/product-catalog-microservice
+#docker network create my_nw
 #docker run --rm -p 9001:9001 --name product-catalog-microservice --link discovery-microservice --link mongo:mongo ecommerce/product-catalog-microservice
