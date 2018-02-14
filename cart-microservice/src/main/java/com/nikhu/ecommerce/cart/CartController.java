@@ -11,7 +11,7 @@ import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@CrossOrigin
+//@CrossOrigin
 @RestController
 public class CartController extends ResponseEntityExceptionHandler {
 
