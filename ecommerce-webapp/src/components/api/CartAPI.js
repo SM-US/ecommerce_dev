@@ -4,7 +4,7 @@ import { AppConstants } from '../constants/AppConstants';
 import request from 'superagent';
 
 export function addToCartApi(cartItem) {
-  request.post('http://' + AppConstants.SERVER + ':' + AppConstants.CART_MICROSERVICE_PORT + '/cart/1234')
+  request.post('http://' + AppConstants.SERVER + ':' + AppConstants.CART_MICROSERVICE_PORT + '/api/cart-service/cart/1234')
     .send(cartItem)
     .set('Accept', 'application/json')
     .end((err, response) => {
