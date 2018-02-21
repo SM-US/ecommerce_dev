@@ -1,6 +1,7 @@
 package com.cloud.ecommerce.hystrix.cart;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,6 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.nikhu.ecommerce.cart.Cart;
 import com.nikhu.ecommerce.cart.CartItem;
 
@@ -37,6 +40,11 @@ public class CartClientController extends ResponseEntityExceptionHandler {
 	@Autowired
 	private RestTemplate restTemplate;
 	
+	@HystrixCommand(fallbackMethod = "getCartFallBack", 
+					groupKey = "getCartGroup",
+					threadPoolKey = "getCardThreadPool",
+					commandKey = "getCartCommandKey" 
+					)
 	@RequestMapping(value = "/cart-client/{id}", method = RequestMethod.GET)
     public Cart cart(@PathVariable("id") String id) {
         log.debug("Received request for cart client by id: {}", id);
@@ -48,8 +56,21 @@ public class CartClientController extends ResponseEntityExceptionHandler {
         return cart;
     }
 	
+	public Cart getCartFallBack(String id) {
+		System.out.println("Returning cart from fall back get");
+		log.debug("Returning cart from fall back get");
+		Cart cart = new Cart();
+		cart.setId(String.valueOf(0));
+		cart.setItems(new ArrayList<>());
+		cart.setTotal(0.0f);
+		return cart;
+	}
 	
-	
+	@HystrixCommand(fallbackMethod = "postCartFallBack", 
+			groupKey = "postCartGroup",
+			threadPoolKey = "postCardThreadPool",
+			commandKey = "postCartCommandKey" 
+			)
 	@RequestMapping(value = "/cart-client/{id}", method = RequestMethod.POST)
     public Cart cart(@PathVariable("id") String id, @RequestBody CartItem cartItem) {
         log.debug("Received request to add item to cart client by id: {}", id);
@@ -68,6 +89,16 @@ public class CartClientController extends ResponseEntityExceptionHandler {
         log.debug("Returned Cart from cart client: {}", cart);
         return cart;
     }
+	
+	public Cart postCartFallBack(String id, CartItem cartItem) {
+		System.out.println("Returning cart from fall back POST");
+		log.debug("Returning cart from fall back POST");
+		Cart cart = new Cart();
+		cart.setId(String.valueOf(0));
+		cart.setItems(new ArrayList<>());
+		cart.setTotal(0.0f);
+		return cart;
+	}
 
     @RequestMapping(value = "/cart-client", method = RequestMethod.POST)
     public Cart cart(@RequestBody CartItem cartItem) {

@@ -17,8 +17,10 @@ include 'services:webservice'
 
 rootProject.name = 'cart-client-microservice'
 include 'cart-microservice'
-/*
-project(':cart-microservice').projectDir = new File(settingsDir, '../ecommerce_dev/cart-microservice')
-*/
+
+//project(':cart-microservice').projectDir = new File(settingsDir, '../ecommerce_dev/cart-microservice')
+
+
+
 project(':cart-microservice').projectDir = new File(settingsDir, '../cart-microservice')
 
