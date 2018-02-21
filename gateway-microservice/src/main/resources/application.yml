@@ -29,3 +29,7 @@ zuul:
       path: /cart-service/**
       #stripPrefix: false
       service-id: CART-MICROSERVICE
+    cart-client-microservice: 
+      path: /cart-client-service/**
+      #stripPrefix: false
+      service-id: CART-CLIENT-MICROSERVICE
