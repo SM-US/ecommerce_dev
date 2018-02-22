@@ -11,5 +11,5 @@ EXPOSE 8002
 
 #docker build . -t ecommerce/configuration-microservice
 #docker network create my_nw
-#docker run --rm -p 8002:8002 --name configuration-microservice --link discovery-microservice ecommerce/configuration-microservice
+#docker run --rm -p 8002:8002 --name configuration-microservice --link discovery-microservice --network my_nw ecommerce/configuration-microservice
 

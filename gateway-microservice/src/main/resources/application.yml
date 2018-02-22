@@ -1,5 +1,12 @@
-server:
-  port: 8000
+eureka:
+  instance:
+    hostname: gateway-microservice
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://discovery-microservice:8001/eureka/
+    registryFetchIntervalSeconds: 1
 
 zuul:
   prefix: /api
@@ -9,22 +16,7 @@ zuul:
       #stripPrefix: false
       service-id: product-catalog-microservice
       #url: http://product-catalog-microservice:9001
-
     cart-microservice:
       path: /cart-service/**
       #stripPrefix: false
       service-id: CART-MICROSERVICE
-
-hystrix:
-  command:
-    default:
-      execution:
-        timeout:
-          enabled: false
-
-product-catalog-microservice:
-  ribbon:
-    readTimeout: 20000
-microservice:
-  ribbon:
-    readTimeout: 20000

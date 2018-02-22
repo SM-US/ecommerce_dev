@@ -5,3 +5,7 @@ build/
 *.iml
 classes/
 /.metadata/
+*.project
+*.settings
+*.classpath
+*bin*

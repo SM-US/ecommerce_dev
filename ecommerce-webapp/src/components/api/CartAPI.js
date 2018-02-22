@@ -4,7 +4,8 @@ import { AppConstants } from '../constants/AppConstants';
 import request from 'superagent';
 
 export function addToCartApi(cartItem) {
-  request.post('http://' + AppConstants.SERVER + ':' + AppConstants.CART_MICROSERVICE_PORT + '/api/cart-service/cart/1234')
+  //request.post('http://' + AppConstants.SERVER + ':' + AppConstants.CART_MICROSERVICE_PORT + '/api/cart-service/cart/1234')
+	request.post('http://' + AppConstants.SERVER + ':' + AppConstants.CART_MICROSERVICE_PORT + '/api/cart-client-service/cart-client/1234')
     .send(cartItem)
     .set('Accept', 'application/json')
     .end((err, response) => {
@@ -15,7 +16,8 @@ export function addToCartApi(cartItem) {
 }
 
     export function getCartApi(id) {
-  request.get('http://' + AppConstants.SERVER + ':' + AppConstants.CART_MICROSERVICE_PORT + '/cart/1234')
+  //request.get('http://' + AppConstants.SERVER + ':' + AppConstants.CART_MICROSERVICE_PORT + '/cart/1234')
+    	request.get('http://' + AppConstants.SERVER + ':' + AppConstants.CART_MICROSERVICE_PORT + '/cart-client/1234')
     .set('Accept', 'application/json')
     .end((err, response) => {
       if (err) return console.error(err);

@@ -11,4 +11,4 @@ EXPOSE 8001
 
 #docker build . -t ecommerce/discovery_microservice
 #docker network create my_nw
-#docker run --rm -p 8001:8001 --name discovery-microservice image_discovery_microservice
+#docker run --rm -p 8001:8001 --name discovery-microservice --network my_nw image_discovery_microservice

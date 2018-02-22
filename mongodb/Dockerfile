@@ -20,3 +20,5 @@ RUN mongod --fork --logpath /var/log/mongodb.log --dbpath /data/db2 --smallfiles
 VOLUME /data/db2
 
 CMD ["mongod", "--config", "/etc/mongodb.conf", "--smallfiles"]
+
+#docker run --rm -p 27017:27017 --name mongo image_mongo

@@ -53,3 +53,11 @@ EXPOSE 6379
 # Docker, but rather explicitely by specifying -p / -P.
 # [1] https://github.com/antirez/redis/commit/edd4d555df57dc84265fdfb4ef59a4678832f6da
 CMD [ "redis-server", "--protected-mode", "no" ]
+
+
+
+#docker build -t image_redis .
+#docker network create my_nw
+#docker network ls
+#docker run --rm -p 6379:6379 --name redis --network my_nw image_redis
+#docker exec -it redis redis-cli
