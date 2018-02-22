@@ -2,13 +2,30 @@ spring:
   application:
     name: product-catalog-microservice
   profiles:
-    active: local
+    active:
+      - dev
   cloud:
     config:
-      hostname: configuration-microservice
-      port: 8002
-      uri: http://${spring.cloud.config.hostname}:${spring.cloud.config.port}
-      fail-fast: false
+      discovery:
+        enabled: true
+        service-id: CONFIGURATION-MICROSERVICE
+      fail-fast: true
   data:
     mongodb:
       uri: mongodb://mongo/test
+  zipkin:
+    enabled: true
+    service:
+      name: product-catalog-microservice
+    locator:
+      discovery:
+        enabled: true
+    base-url: http://zipkin-server/
+
+eureka:
+  instance:
+    hostname: product-catalog-microservice
+  client:
+    registryFetchIntervalSeconds: 1
+    serviceUrl:
+      defaultZone: http://discovery-microservice:8001/eureka/

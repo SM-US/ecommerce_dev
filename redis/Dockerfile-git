@@ -1,4 +1,4 @@
-#FROM smebberson/alpine-redis
+FROM smebberson/alpine-redis
 
 #MAINTAINER Venkata Ravuri <venkat@nikhu.com>
 

@@ -3,4 +3,5 @@ include 'configuration-microservice'
 include 'gateway-microservice'
 include 'product-catalog-microservice'
 include 'cart-microservice'
+include 'zipkin-server'
 

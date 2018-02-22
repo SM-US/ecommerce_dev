@@ -18,10 +18,18 @@ services:
     ports:
       - "6379:6379"
 
-  mongodb:
+  mongo:
     build: ./mongodb
     ports:
      - "27017:27017"
+
+  zipkin-server:
+    build: ./zipkin-server
+    ports:
+     - "9411:9411"
+    depends_on:
+     - discovery-microservice
+     - configuration-microservice
 
   gateway-microservice:
     build: ./gateway-microservice
@@ -48,6 +56,6 @@ services:
      - "4444:4444"
     depends_on:
      - discovery-microservice
-     - configuration-microservice
      - gateway-microservice
-     - mongodb
+     - mongo
+     - configuration-microservice

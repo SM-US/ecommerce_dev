@@ -2,6 +2,21 @@ spring:
   application:
     name: configuration-microservice
   profiles:
-    active: local
-server:
-  port: 8002
+    active:
+      - dev
+  zipkin:
+    enabled: true
+    service:
+      name: cart-microservice
+    locator:
+      discovery:
+         enabled: true
+    base-url: http://zipkin-server/
+
+eureka:
+  instance:
+    hostname: configuration-microservice
+  client:
+    registryFetchIntervalSeconds: 1
+    serviceUrl:
+      defaultZone: http://discovery-microservice:8001/eureka/

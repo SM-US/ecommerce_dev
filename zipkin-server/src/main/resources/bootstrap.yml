@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: zipkin-server
+  profiles:
+    active:
+      - dev
+  cloud:
+    config:
+      discovery:
+        service-id: CONFIGURATION-MICROSERVICE
+        enabled:  true
+      #username: configUser
+      #password: configPassword
+      #uri: http://configuration-microservice:8002
+      fail-fast: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone:  http://discovery-microservice:8001/eureka/

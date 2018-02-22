@@ -2,6 +2,24 @@ spring:
   application:
     name: gateway-microservice
   profiles:
-    active: local
-server:
-  port: 8000
+    active:
+      - dev
+
+  zipkin:
+    enabled: true
+    service:
+      name: zuul-service
+    locator:
+      discovery:
+       enabled: true
+    base-url: http://zipkin-server/
+
+eureka:
+  instance:
+    hostname: gateway-microservice
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://discovery-microservice:8001/eureka/
+    registryFetchIntervalSeconds: 1
